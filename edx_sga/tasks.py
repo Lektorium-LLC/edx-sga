@@ -16,7 +16,7 @@ from submissions import api as submissions_api  # lint-amnesty, pylint: disable=
 from student.models import user_by_anonymous_id  # lint-amnesty, pylint: disable=import-error
 from opaque_keys.edx.locator import BlockUsageLocator
 
-from edx_sga.constants import BLOCK_SIZE, ITEM_TYPE
+from edx_sga.constants import BLOCK_SIZE, ITEM_TYPE, VERSION
 
 
 log = logging.getLogger(__name__)
@@ -139,10 +139,11 @@ def _get_submissions_base_name(username, block_id, course_id):
         block_id (unicode): edx block id
         username (unicode): staff user name
     """
-    return "{username}_submissions_{id}_{course_key}".format(
+    return "{username}_submissions_{id}_{course_key}_{version}".format(
         username=username,
         id=hashlib.md5(block_id).hexdigest(),
-        course_key=course_id
+        course_key=course_id,
+        version=VERSION
     )
 
 
