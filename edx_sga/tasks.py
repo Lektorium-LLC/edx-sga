@@ -66,6 +66,7 @@ def _collect_student_submissions(block_id, course_id, locator, destination_path)
             )
 
             destination_file_path = _get_destination_file_path(
+                student.email,
                 student.username,
                 answer['sha1'],
                 ext,
@@ -80,17 +81,19 @@ def _collect_student_submissions(block_id, course_id, locator, destination_path)
                 log.exception("Unable to download submission of student=%s", student.username)
 
 
-def _get_destination_file_path(student_name, sha1, ext, destination_path):
+def _get_destination_file_path(student_email, student_name, sha1, ext, destination_path):
     """
     return destination file path
 
     Args:
+        student_email (str): user email of student
         student_name (str): user name of student
         sha1 (str): SHA code for file
         ext (str): extension of file
         destination_path (str): path (including name) of folder/file which we want to compress.
     """
-    destination_file_name = six.u("{student_name}_{sha1}{ext}").format(
+    destination_file_name = six.u("{student_email}_{student_name}_{sha1}{ext}").format(
+        student_email=student_email,
         student_name=student_name,
         sha1=sha1,
         ext=ext
