@@ -92,8 +92,8 @@ def _get_destination_file_path(student_email, student_name, sha1, ext, destinati
         ext (str): extension of file
         destination_path (str): path (including name) of folder/file which we want to compress.
     """
-    destination_file_name = six.u("{student_email}_{student_name}_{sha1}{ext}").format(
-        student_email=student_email.replace(".", "_"),
+    destination_file_name = six.u("{student_name}_{sha1}{ext}").format(
+        # student_email=student_email,  {student_email}_{
         student_name=student_name,
         sha1=sha1,
         ext=ext

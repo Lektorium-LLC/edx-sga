@@ -2,7 +2,7 @@
 
 BLOCK_SIZE = 8 * 1024
 ITEM_TYPE = 'sga'
-VERSION = "v2"
+VERSION = "v3"
 
 
 class ShowAnswer(object):
