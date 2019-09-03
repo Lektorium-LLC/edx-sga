@@ -81,6 +81,7 @@
       <% for (var i = 0; i < assignments.length; i++) { %>
       <%     var assignment = assignments[i]; %>
         <tr id="row-<%= assignment.module_id %>"<% if (!assignment.finalized) { %> class="not-finalized"<% } %>>
+          <td><%= assignment.suid %></td>
           <td><%= assignment.username %></td>
           <td><%= assignment.fullname %></td>
           <td>
