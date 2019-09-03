@@ -357,6 +357,19 @@ function StaffGradedAssignmentXBlock(runtime, element) {
                     }
                   );
                 });
+
+                $(element).find('#download-table-button').click(function(e) {
+                  e.preventDefault();
+                  var self = this;
+                  var tableEl = document.createElement('a');
+
+                  tableEl.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent("test"));
+                  tableEl.setAttribute('download', "students.txt");
+                  tableEl.style.display = 'none';
+                  document.body.appendChild(tableEl);
+                  tableEl.click();
+                  document.body.removeChild(tableEl);
+                });
             }
         });
 

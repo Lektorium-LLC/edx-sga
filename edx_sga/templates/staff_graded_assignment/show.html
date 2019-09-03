@@ -65,6 +65,7 @@
     <table class="gridtable tablesorter" id="submissions">
       <thead>
       <tr>
+        <th class="header" style="display: none">id<i class="icon fa fa-sort"/></th>
         <th class="header">{% trans "Username" %} <i class="icon fa fa-sort"/></th>
         <th class="header">{% trans "Name" %} <i class="icon fa fa-sort"/></th>
         <th class="header">{% trans "Filename" %} <i class="icon fa fa-sort"/></th>
@@ -149,6 +150,10 @@
       <br/>
       <div>
         <a class="instructor-info-action button btn-download-all" href="#" id="download-init-button">{% trans "Download All Submissions" %}</a>
+      </div>
+
+        <div>
+        <a class="instructor-info-action button btn-download-all" href="#" id="download-table-button">Download students list</a>
       </div>
       <p class="task-message"></p>
       <div id="grade-info" style="display: block;">

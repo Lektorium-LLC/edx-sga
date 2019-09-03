@@ -786,6 +786,7 @@ class StaffGradedAssignmentXBlock(StudioEditableXBlockMixin, ShowAnswerXBlockMix
                     needs_approval = False
                 instructor = self.is_instructor()
                 yield {
+                    'suid': user.id,
                     'module_id': student_module.id,
                     'student_id': student.student_id,
                     'submission_id': submission['uuid'],
